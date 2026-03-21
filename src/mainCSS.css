@@ -274,8 +274,6 @@ ul.tree details[open] > summary::before {
 
 /*S: markdown formatting*/
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-    margin-top: var(--base-size-24);
-    margin-bottom: var(--base-size-16);
     font-weight: var(--base-text-weight-semibold, 600);
     line-height: 1.25;
 }
@@ -391,7 +389,7 @@ ul:has(li input[type="checkbox"]) {
 }
 
 .toolbar-down > * {
-  flex: 0 0 calc(20%);
+  flex: 0 0 20%;
   box-sizing: border-box;
 }
 
@@ -501,6 +499,11 @@ ul:has(li input[type="checkbox"]) {
 
 /*S: print support*/
 @media print {
+  :root {
+    --c-p: black;
+    --c-wordFound-F: var(--c-p);
+  }
+
   .toolbar {
     display: none !important;
   }
@@ -511,8 +514,7 @@ ul:has(li input[type="checkbox"]) {
 
   body * {
     visibility: hidden;
-    color: black !important;
-    --c-wordFound-F: black;
+    color: var(--c-p) !important;
   }
 
   .main, .main * {
@@ -527,7 +529,7 @@ ul:has(li input[type="checkbox"]) {
   }
 
   a {
-    color: black;
+    color: var(--c-p);
   }
   
   .header {
@@ -543,7 +545,7 @@ ul:has(li input[type="checkbox"]) {
   }
 
   .too-wide {
-    font-size: calc(1em);
+    font-size: 1em;
   }
   
   .page-break {
